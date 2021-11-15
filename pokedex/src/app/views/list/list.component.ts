@@ -11,7 +11,7 @@ export class ListComponent implements OnInit {
   nameFilter = '';
   selectedPkm: any = null;
   get pokemonList(){
-    return this.pokeapi.pokemonList.filter(pokemon => {
+    return this.pokeapi.pokeList.filter(pokemon => {
       return pokemon.name.toLowerCase().indexOf(this.nameFilter.toLowerCase()) !== -1;
     })
   }
@@ -25,6 +25,7 @@ export class ListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.pokeapi.listAll();
   }
 
   selectPokemon(pkm: any){
